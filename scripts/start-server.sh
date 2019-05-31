@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "---sleep---"
 sleep infinity
 
 echo "---Preparing Server---"
