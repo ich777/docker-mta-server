@@ -1,12 +1,12 @@
 #!/bin/bash
-if [ "FORCE_UPDATE" = "true" ]; then
+if [ "${FORCE_UPDATE}" = "true" ]; then
 	echo "---Force Update activated---"
     echo "---Downloading MTA---"
 	cd ${SERVER_DIR}
    	wget -qi multitheftauto_linux_x64.tar.gz http://linux.mtasa.com/dl/multitheftauto_linux_x64.tar.gz
 	tar --overwrite -xf multitheftauto_linux_x64.tar.gz
     rm ${SERVER_DIR}/multitheftauto_linux_x64.tar.gz
-    if [ "SKIP_BASECONFIG_CHK" != "true" ]; then
+    if [ "${SKIP_BASECONFIG_CHK}" != "true" ]; then
         echo "---Downloading Baseconfig---"
         cd ${SERVER_DIR}
         wget -qi baseconfig.tar.gz http://linux.mtasa.com/dl/baseconfig.tar.gz
@@ -26,7 +26,7 @@ if [ "FORCE_UPDATE" = "true" ]; then
     else
     	echo "---Baseconfig download skipped---"
     fi
-    if [ "DOWNLOAD_RESOURCES" = "true" ]; then
+    if [ "${DOWNLOAD_RESOURCES}" = "true" ]; then
     	echo "---Downloading Resources---"
         if [ ! -d ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources ]; then
             mkdir ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources
@@ -53,7 +53,7 @@ else
 	echo "---MTA found!---"
 fi
 
-if [ "SKIP_BASECONFIG_CHK" != "true" ]; then
+if [ "${SKIP_BASECONFIG_CHK}" != "true" ]; then
 	echo "---Checking for Baseconfig---"
 	if [ ! -d ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig ]; then
 		echo "---Baseconfig not found, downloading---"
@@ -77,7 +77,7 @@ else
 	echo "---Skipping Baseconfig check---"
 fi
 
-if [ "DOWNLOAD_RESOURCES" = "true" ]; then
+if [ "${DOWNLOAD_RESOURCES}" = "true" ]; then
 	echo "---Checking for Resources---"
     if [ ! -d ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources ]; then
     	mkdir ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources
@@ -94,5 +94,4 @@ chmod -R 770 ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}
-${SERVER_DIR}/multitheftauto_linux_x64/mta-server64 && \
-tail -F ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/logs/server.txt
+${SERVER_DIR}/multitheftauto_linux_x64/mta-server64
