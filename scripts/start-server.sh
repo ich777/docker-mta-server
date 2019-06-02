@@ -52,11 +52,15 @@ if [ "SKIP_BASECONFIG_CHK" != "true" ]; then
         cd ${SERVER_DIR}
 		wget -qi baseconfig.tar.gz http://linux.mtasa.com/dl/baseconfig.tar.gz
 		tar -xf baseconfig.tar.gz
-        mv ${SERVER_DIR}/baseconfig ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
+        cp -R ${SERVER_DIR}/baseconfig ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
         rm ${SERVER_DIR}/baseconfig.tar.gz
         cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig
         rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf
         wget -qi mtaserver.conf https://raw.githubusercontent.com/ich777/docker-mta-server/master/config/mtaserver.conf
+        if [ ! -d ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf ]; then
+        	echo "---Something went wrong, can't download 'mtaserver.conf'---"
+            sleep infinity
+        fi
     else
     	echo "---Baseconfig found!---"
     fi
