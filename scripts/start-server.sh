@@ -82,7 +82,7 @@ if [ "${DOWNLOAD_RESOURCES}" = "true" ]; then
     if [ ! -d ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources ]; then
     	mkdir ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources
         cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources
-        wget -qi mtasa-resources-latest.zip http://mirror.mtasa.com/mtasa/resources/mtasa-resources-latest.zip
+        wget -q mtasa-resources-latest.zip http://mirror.mtasa.com/mtasa/resources/mtasa-resources-latest.zip
         unzip -o mtasa-resources-latest.zip
         rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources/mtasa-resources-latest.zip
     fi
