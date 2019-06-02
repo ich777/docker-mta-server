@@ -92,4 +92,5 @@ chmod -R 770 ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}
-${SERVER_DIR}/multitheftauto_linux_x64/mta-server64
+${SERVER_DIR}/multitheftauto_linux_x64/mta-server64 && \
+tail -F ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/logs/server.txt
