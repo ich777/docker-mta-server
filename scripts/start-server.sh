@@ -86,6 +86,8 @@ if [ "DOWNLOAD_RESOURCES" = "true" ]; then
         unzip -o mtasa-resources-latest.zip
         rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources/mtasa-resources-latest.zip
     fi
+else
+	echo "---Resource Download skipped---"
 fi
 echo "---Preparing Server---"
 chmod -R 770 ${DATA_DIR}
