@@ -94,6 +94,6 @@ chmod -R 770 ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}
-screen -S MTA -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/multitheftauto_linux_x64/mta-server64
+screen -S MTA -d -m ${SERVER_DIR}/multitheftauto_linux_x64/mta-server64
 sleep 2
 tail -F ${SERVER_DIR}/${LOGFILE_DIR}
