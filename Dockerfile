@@ -3,7 +3,7 @@ FROM ubuntu
 MAINTAINER ich777
 
 RUN apt-get update
-RUN apt-get -y install wget
+RUN apt-get -y install wget unzip
 
 ENV DATA_DIR="/serverdata"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
@@ -12,6 +12,8 @@ ENV GAME_NAME="template"
 ENV GAME_PARAMS="template"
 ENV GAME_PORT=22003
 ENV HTTP_PORT=22005
+ENV SKIP_BASECONFIG_CHK=""
+ENV DOWNLOAD_RESOURCES="true"
 ENV FORCE_UPDATE=""
 ENV UID=99
 ENV GID=100
