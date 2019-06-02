@@ -12,9 +12,17 @@ if [ "FORCE_UPDATE" = "true" ]; then
         wget -qi baseconfig.tar.gz http://linux.mtasa.com/dl/baseconfig.tar.gz
         tar -xf baseconfig.tar.gz
         rm ${SERVER_DIR}/baseconfig/mtaserver.conf
-        cp -R ${SERVER_DIR}/baseconfig ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
+        cp -R ${SERVER_DIR}/baseconfig/* ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
         rm -R ${SERVER_DIR}/baseconfig
         rm ${SERVER_DIR}/baseconfig.tar.gz
+        if [ ! -f ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf ]; then
+        	cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
+        	wget -qi mtaserver.conf https://raw.githubusercontent.com/ich777/docker-mta-server/master/config/mtaserver.conf
+        	if [ ! -f ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/mtaserver.conf ]; then
+        		echo "---Something went wrong, can't download 'mtaserver.conf'---"
+            	sleep infinity
+        	fi
+        fi
     else
     	echo "---Baseconfig download skipped---"
     fi
@@ -55,10 +63,10 @@ if [ "SKIP_BASECONFIG_CHK" != "true" ]; then
         cp -R ${SERVER_DIR}/baseconfig ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
         rm -R ${SERVER_DIR}/baseconfig
         rm ${SERVER_DIR}/baseconfig.tar.gz
-        cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig
-        rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf
+        cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
+        rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/mtaserver.conf
         wget -qi mtaserver.conf https://raw.githubusercontent.com/ich777/docker-mta-server/master/config/mtaserver.conf
-        if [ ! -f ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf ]; then
+        if [ ! -f ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/mtaserver.conf ]; then
         	echo "---Something went wrong, can't download 'mtaserver.conf'---"
             sleep infinity
         fi
