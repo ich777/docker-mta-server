@@ -53,6 +53,7 @@ if [ "SKIP_BASECONFIG_CHK" != "true" ]; then
 		wget -qi baseconfig.tar.gz http://linux.mtasa.com/dl/baseconfig.tar.gz
 		tar -xf baseconfig.tar.gz
         cp -R ${SERVER_DIR}/baseconfig ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch
+        rm -R ${SERVER_DIR}/baseconfig
         rm ${SERVER_DIR}/baseconfig.tar.gz
         cd ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig
         rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/baseconfig/mtaserver.conf
