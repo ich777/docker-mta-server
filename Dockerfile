@@ -16,6 +16,7 @@ ENV SKIP_BASECONFIG_CHK=""
 ENV DOWNLOAD_RESOURCES="true"
 ENV LOGFILE_DIR="multitheftauto_linux_x64/mods/deathmatch/logs/server.txt"
 ENV FORCE_UPDATE=""
+ENV UMASK=000
 ENV UID=99
 ENV GID=100
 
