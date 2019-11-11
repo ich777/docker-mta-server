@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "---Setting umask to ${UMASK}---"
+umask ${UMASK}
 if [ "${FORCE_UPDATE}" = "true" ]; then
 	echo "---Force Update activated---"
     echo "---Downloading MTA---"
