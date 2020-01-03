@@ -33,6 +33,7 @@ if [ "${FORCE_UPDATE}" = "true" ]; then
             	echo "---Successfully downloaded 'mtaserver.conf'---"
             else
             	echo "---Can't download 'mtaserver.conf' putting server into sleep mode---"
+                sleep infinity
             fi
         fi
     else
@@ -48,6 +49,7 @@ if [ "${FORCE_UPDATE}" = "true" ]; then
         	echo "---Successfully downloaded Resources---"
         else
         	echo "---Can't download Resources putting server into sleep mode---"
+            sleep infinity
         fi
     	unzip -o mtasa-resources-latest.zip
     	rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources/mtasa-resources-latest.zip
@@ -95,6 +97,7 @@ if [ "${SKIP_BASECONFIG_CHK}" != "true" ]; then
            	echo "---Successfully downloaded 'mtaserver.conf'---"
         else
            	echo "---Can't download 'mtaserver.conf' putting server into sleep mode---"
+            sleep infinity
         fi
     else
     	echo "---Baseconfig found!---"
@@ -112,6 +115,7 @@ if [ "${DOWNLOAD_RESOURCES}" = "true" ]; then
         	echo "---Successfully downloaded Resources---"
         else
         	echo "---Can't download Resources putting server into sleep mode---"
+            sleep infinity
         fi
         unzip -o mtasa-resources-latest.zip
         rm ${SERVER_DIR}/multitheftauto_linux_x64/mods/deathmatch/resources/mtasa-resources-latest.zip
