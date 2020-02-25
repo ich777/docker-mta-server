@@ -1,6 +1,4 @@
 #!/bin/bash
-echo "---Setting umask to ${UMASK}---"
-umask ${UMASK}
 if [ "${FORCE_UPDATE}" = "true" ]; then
 	echo "---Force Update activated---"
     echo "---Downloading MTA---"
@@ -124,7 +122,7 @@ else
 	echo "---Resource Download skipped---"
 fi
 echo "---Preparing Server---"
-chmod -R 770 ${DATA_DIR}
+chmod -R ${DATA_PERM} ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}
