@@ -31,7 +31,7 @@ docker run --name MTA -d \
     --env 'GID=100' \
     --volume /path/to/mta:/serverdata/serverfiles \
     --restart=unless-stopped \
-    ich777/ich777/mtaserver
+    ich777/mtaserver
 ```
 
 This Docker was mainly created for the use with Unraid, if you don’t use Unraid you should definitely try it!
